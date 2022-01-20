@@ -8,8 +8,8 @@ ${INPUT_PASS}       id=password
 
 *** Keywords ***
 Go To Login Page
-    Go To               ${BASE_URL}
-    Wait For Elements State    css=.login-form      visible     5
+    Go To                       ${BASE_URL}
+    Wait For Elements State     css=.login-form      visible     5
 
 Fill Credentials
     [Arguments]         ${user}

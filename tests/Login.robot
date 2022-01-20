@@ -37,6 +37,33 @@ Incorrect Email
 
     ${user}     Create Dictionary       email=horley.com.net       password=abc123
     Go To Login Page
-    Fill Credentials    ${user}
+    Fill Credentials        ${user}
     Submit Credentials
     Should Be Type Email
+
+Required Email
+    [Tags]          temp
+    ${user}                 Create Dictionary       email=${EMPTY}              password=abc123
+    Go To Login Page
+    Fill Credentials        ${user}
+    Submit Credentials
+    Alert Span should Be    E-mail obrigatório
+
+Required Pass
+    [Tags]          temp
+    ${user}                 Create Dictionary       email=horley@gmail.com      password=${EMPTY}
+    Go To Login Page
+    Fill Credentials        ${user}
+    Submit Credentials
+    Alert Span should Be    Senha obrigatória
+
+Required Fields
+    [Tags]          temp
+    @{expected_alert}           Create List
+    ...                         E-mail obrigatório
+    ...                         Senha obrigatória
+
+    Go To Login Page
+    Submit Credentials
+    Alert Spans should Be       ${expected_alert}
+
