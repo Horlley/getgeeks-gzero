@@ -4,10 +4,12 @@ Documentation       Base do teste
 Library         Browser
 Library         Collections
 
-Library         Factories/User.py
+Library         ./factories/User.py
+Library         Utils.py
 
 Resource        actions/_SharedActions.robot
 Resource        actions/AuthActions.robot
+Resource        actions/GeekActions.robot
 Resource        actions/SignupActions.robot
 
 Resource        Database.robot
@@ -18,8 +20,11 @@ ${BASE_URL}         https://getgeeks-horley.herokuapp.com
 
 *** Keywords ***
 Start Session
-    New Browser     chromium        headless=False      slowMo=00:00:00
-    New Page        ${BASE_URL}
+    New Browser             ${BROWSER}          headless=${headless}        slowMo=00:00:00
+#    New Browser            firefox             headless=${headless}      slowMo=00:00:00
+    New Page                ${BASE_URL}
+    Set Viewport Size       1280        768
 
-Finish Session
-    Take Screenshot
+After Test
+    ${shot_name}        Screenshor Name
+    Take Screenshot     fullPage=True           filename=${shot_name}

@@ -3,6 +3,7 @@ Documentation       Shared actions
 Resource            ../Base.robot
 
 *** Keywords ***
+# O conteúdo modal deve ser
 Modal Content Should Be
         [Arguments]     ${expected_text}
 
@@ -15,11 +16,13 @@ Modal Content Should Be
         Wait For Elements State             ${content}       visible     5
         Get Text                            ${content}       equal       ${expected_text}
 
+# O período de alerta deve ser
 Alert Span should Be
         [Arguments]                         ${expected_alert}
         Wait For Elements State             css=span[class='error'] >> text=${expected_alert}
         ...                                 visible         5
 
+# O período de alertas devem ser
 Alert Spans Should Be
         [Arguments]                         ${expected_alerts}
 

@@ -2,14 +2,14 @@
 Documentation       Login test Suite
 
 Resource    ../resources/Base.robot
-Resource    ${EXECDIR}/resources/Base.robot
 
 Test Setup      Start Session
-Test Teardown   Finish Session
+Test Teardown   After Test
 
 *** Test Cases ***
 User login
-    ${user}                         Factory User Login
+    [Tags]      Smoke
+    ${user}                         Factory User    login
     Go To Login Page
     Fill Credentials                ${user}
     Submit Credentials
@@ -23,6 +23,7 @@ Incorrect Pass
     Submit Credentials
     Modal Content Should Be             Usuário e/ou senha inválidos.
 
+# Usuário não encontrado
 User not found
     [Tags]      user_404
 
@@ -32,6 +33,7 @@ User not found
     Submit Credentials
     Modal Content Should Be             Usuário e/ou senha inválidos.
 
+# Email incorreto
 Incorrect Email
     [Tags]      i_email
 
@@ -39,8 +41,9 @@ Incorrect Email
     Go To Login Page
     Fill Credentials        ${user}
     Submit Credentials
-    Should Be Type Email
+    Should Be Type Email    #Deve ser tipo e-mail
 
+# Email requerido
 Required Email
     [Tags]          temp
     ${user}                 Create Dictionary       email=${EMPTY}              password=abc123
@@ -49,14 +52,16 @@ Required Email
     Submit Credentials
     Alert Span should Be    E-mail obrigatório
 
+# Senha obrigatória
 Required Pass
     [Tags]          temp
     ${user}                 Create Dictionary       email=horley@gmail.com      password=${EMPTY}
-    Go To Login Page
+    Go To Login Page    #Ir para a página de login
     Fill Credentials        ${user}
     Submit Credentials
     Alert Span should Be    Senha obrigatória
 
+# Os campos obrigatórios
 Required Fields
     [Tags]          temp
     @{expected_alert}           Create List

@@ -4,35 +4,40 @@ Documentation       Signup Test Suite
 Resource            ../resources/Base.robot
 
 Test Setup          Start Session
-Test Teardown       Finish Session
+Test Teardown       After Test
 
 
 *** Test Cases ***
+# Registrar novo usuário
 Register a new user
-        ${user}                     Factory User
+        [Tags]      Smoke
+        ${user}     Factory User    faker
 
         Go To Signup Form
         Fill Signup Form            ${user}
         Submit Signup Form
         User Should Be Registered
 
+# Usuário duplicado
 Duplicate User
         [Tags]                      attempt_signup
-        ${user}                     factory_user
+        ${user}                     Factory User    faker
         Add User From Database      ${user}
         Go To Signup Form
         Fill Signup Form            ${user}
         Submit Signup Form
         Modal Content Should Be     Já temos um usuário com o e-mail informado.
 
+# Email errodo
 Wrong Email
         [tags]                      attempt_signup
-        ${user}                     factory wrong email
+        ${user}                     Factory User    wrong_email
         Go To Signup Form
         Fill Signup Form            ${user}
         Submit Signup Form
         Alert Span should Be        O email está estranho
 
+# Os campos obrigatórios
 Required Fields
         [Tags]          attempt_signup      reqF
         #[Template]      Signup Submit Without Form
@@ -46,6 +51,7 @@ Required Fields
         Submit Signup Form
         Alert Spans Should Be     ${expected_alerts}
 
+# Senha curta
 Short Password
         [Tags]          attempt_signup      short_pass
         [Template]      Sign with Short Pass
@@ -63,6 +69,7 @@ Short Password
         acb#1
 
 *** Keywords ***
+
 Sign with Short Pass
         [Arguments]     ${short_pass}
         ${user}     Create Dictionary
