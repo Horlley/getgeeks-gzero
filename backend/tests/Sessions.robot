@@ -37,7 +37,6 @@ User session
 
 Should Not Get Token
     [Template]          Attempt POST Session
-
     ${inv_pass}         401         Unauthorized
     ${inv_email}        400         Incorrect email
     ${email_404}        401         Unauthorized
