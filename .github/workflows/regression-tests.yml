@@ -70,7 +70,7 @@ jobs:
       run: |        
         chmod +x ./fromtend/run.sh        
         cd fromtend/ && ./run.sh
-    - name: Upload API test results
+    - name: Upload web test results
       uses: actions/upload-artifact@v2.3.1
       if: always()
       with:
