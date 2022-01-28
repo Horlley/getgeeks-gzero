@@ -40,6 +40,7 @@ def factory_update_user():
 
 
 def factory_user_session(target):
+
     name = 'Kate Bishop'
     email = 'kate@hotmail.com'
     password = 'pwd123'
@@ -48,13 +49,14 @@ def factory_user_session(target):
         'signup': {
             'name': name,
             'email': email,
-            'passwork': password
+            'password': password
         },
         'login': {
             'email': email,
             'password': password
         }
     }
+
     return data[target]
 
 
