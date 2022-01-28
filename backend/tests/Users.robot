@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation       Users route test suite
 
-Resource            ${EXECDIR}/resources/Base.robot
-Resource            ${EXECDIR}/resources/Helpers.robot
+Resource                ../resources/Base.robot
+Resource                ../resources/Helpers.robot
 
 *** Test Cases ***
 Add new user

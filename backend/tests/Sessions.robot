@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Session route test suite
 
-Resource            ${EXECDIR}/resources/Base.robot
+Resource                ../resources/Base.robot
 
 *** Variables ***
 &{inv_pass}         email=kim@dot.com           password=abc123
