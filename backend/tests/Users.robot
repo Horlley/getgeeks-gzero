@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Users route test suite
 
-Resource            ${EXECDIR}/resources/base.robot
+Resource            ${EXECDIR}/resources/Base.robot
 Resource            ${EXECDIR}/resources/Helpers.robot
 
 *** Test Cases ***

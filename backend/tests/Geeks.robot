@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Geek route test suite
 
-Resource            ${EXECDIR}/resources/base.robot
+Resource            ${EXECDIR}/resources/Base.robot
 
 *** Test Cases ***
 Be a geek
