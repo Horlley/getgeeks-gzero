@@ -65,7 +65,7 @@ jobs:
         pip install build
         pip install -r requirements.txt
     - name: Run Browser Init
-      run: frbrowser init
+      run: rfbrowser init
     - name: Rum WEB Tests
       run: |        
         chmod +x ./fromtend/run.sh        
