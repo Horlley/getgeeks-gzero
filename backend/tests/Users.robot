@@ -2,7 +2,7 @@
 Documentation       Users route test suite
 
 Resource            ${EXECDIR}/resources/base.robot
-Resource            ../resources/Helpers.robot
+Resource            ${EXECDIR}/resources/Helpers.robot
 
 *** Test Cases ***
 Add new user
