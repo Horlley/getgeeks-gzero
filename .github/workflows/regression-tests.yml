@@ -26,5 +26,5 @@ jobs:
         pip install -r requirements.txt    
     - name: Rum API tests
       run: |
-        chmod +x ./backend/rum.sh
-        cd backend/ && ./rum.sh
+        chmod +x ./backend/run.sh
+        cd backend/ && ./run.sh
