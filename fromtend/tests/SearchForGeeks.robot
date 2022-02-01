@@ -3,7 +3,7 @@ Documentation       Search for geeks test suite
 
 Resource    ../resources/Base.robot
 
-Suite Setup         Start Session
+Test Setup          Start Session
 Test Teardown       After Test
 
 *** Test Cases ***
