@@ -2,9 +2,10 @@
 Documentation       Base do teste
 
 Library         Browser
+Library         String
 Library         Collections
 
-Library         ./factories/User.py
+Library         factories/User.py
 Library         Utils.py
 
 Resource        actions/_SharedActions.robot
@@ -14,6 +15,7 @@ Resource        actions/SignupActions.robot
 
 Resource        Database.robot
 Resource        Helpers.robot
+Resource        Services.robot
 
 *** Variables ***
 ${BASE_URL}         https://getgeeks-horley.herokuapp.com

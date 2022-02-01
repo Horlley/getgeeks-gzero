@@ -29,6 +29,7 @@ Insert User
 # Usuário semente
 Users Seed
     ${users}        Factory To Insert DB
+
     FOR    ${user}    IN    @{users}
         Insert User    ${user}
     END

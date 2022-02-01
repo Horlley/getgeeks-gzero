@@ -8,11 +8,15 @@ def get_hashed_pass(password):
     hashed = bcrypt.hashpw(password.encode('utf 8'), bcrypt.gensalt(8))
     return hashed
 
+
 def factory_to_insert_DB():
     return [
         factory_user('login'),
         factory_user('be_geek'),
-        factory_user('attempt_be_geek')
+        factory_user('attempt_be_geek'),
+        factory_user('search_alien'),
+        factory_user('search_common'),
+        factory_user('searcher')
     ]
 
 
@@ -61,8 +65,39 @@ def factory_user(target):
                 'work': 'Remoto',
                 'cost': '220'
             }
+        },
+        'searcher': {
+            'name': 'Johnny',
+            'lastName': 'Lawrence',
+            'email': 'johnnyk@cobrakai.com',
+            'password': 'pwd123'
+        },
+        'search_alien': {
+            'name': 'Dok',
+            'lastName': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                'whatsapp': '21999991001',
+                'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e também impressora 3D.',
+                'printer_repair': 'Sim',
+                'work': 'Presencial',
+                'cost': '250'
+            }
+        },
+        'search_common': {
+            'name': 'Peter',
+            'lastName': 'Parker',
+            'email': 'parker@oscorp.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                'whatsapp': '21999991045',
+                'desc': 'Faço instalações de distribuição Linux no seu computador PC X86 ou X64 com processador Intel ou AMF. Pode ser Linux Debian, Ubuntu, Mint, Fedora, etc...',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '200'
+            }
         }
-
     }
 
     return data[target]
